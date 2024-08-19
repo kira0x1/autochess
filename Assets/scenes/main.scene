@@ -1,0 +1,116 @@
+{
+  "__guid": "4ac40663-c539-43bb-9618-c39a3294f619",
+  "GameObjects": [
+    {
+      "__guid": "381aab25-9b7e-4704-bb94-36c90407d11c",
+      "Flags": 0,
+      "Name": "Camera",
+      "Position": "-290.3067,0,308.2508",
+      "Rotation": "0,0.3826835,0,0.9238796",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "f8646362-3105-4536-85c1-db6a104141cd",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 45.21,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 301,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "__guid": "806cffae-d80b-4b10-8121-c9e75fc96639",
+      "Flags": 0,
+      "Name": "Plane",
+      "Position": "32,0,0",
+      "Scale": "2,2,1",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f9d49d15-c3ac-435d-8549-dad897408400",
+          "BodyGroups": 18446744073709551615,
+          "MaterialOverride": "materials/dev/simple/simple_tile.vmat",
+          "Model": "models/dev/plane.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3585c35c-9af3-4249-9e80-3f8143ebc41d",
+      "Flags": 0,
+      "Name": "Sun",
+      "Position": "0,0,64",
+      "Rotation": "0,0.3826834,0,0.9238796",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "fd7660ea-e1ce-4928-8e21-3163a879fe2d",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0,0,0,0"
+        }
+      ]
+    },
+    {
+      "__guid": "d6efbd06-c640-4f3c-9fe4-43428ae14d84",
+      "Flags": 0,
+      "Name": "Grid",
+      "Position": "-64,0.5890198,11.50001",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Kira.GridManager",
+          "__guid": "03383934-ffd5-4189-a84b-eabc3df9e09e",
+          "CellCount": 8,
+          "CellHeight": 0,
+          "CellOffset": 2,
+          "CellSize": 22,
+          "LineThickness": 2
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "main",
+  "Description": "",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
