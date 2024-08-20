@@ -57,6 +57,12 @@ public sealed class GridManager : Component
             }
 
             Gizmo.Draw.LineBBox(b);
+
+
+            float cx = b.Center.x;
+            float cy = b.Center.y;
+
+            Gizmo.Draw.WorldText($"{cy:F0}, {cx:F0}", new Transform(b.Center, Rotation.From(0, -90, 0), 0.2f), "Roboto", 22f, TextFlag.Center);
         }
     }
 
@@ -95,7 +101,7 @@ public sealed class GridManager : Component
         {
             py += CellOffset + CellSize;
             pos.y = py;
-
+            pos.z = 0;
             cell.Position = pos;
         }
 
@@ -112,15 +118,10 @@ public sealed class GridManager : Component
             return;
         }
 
-        // Ray ray = cam.ScreenPixelToRay(Mouse.Position);
-        // var mpos = ray.Project(300);
-
         var ray = cam.ScreenPixelToRay(Mouse.Position).Project(400f);
-        var tr = Scene.Trace.Ray(cam.Transform.Position, ray).WithTag("floor").Run();
+        var mpos = Scene.Trace.Ray(cam.Transform.Position, ray).Run().EndPosition;
 
-        var mpos = new Vector2(ray.x, ray.y);
-        Log.Info($"{mpos.x:F0}, {mpos.y:F0}");
-        MousePos = mpos;
+        MousePos = new Vector2(mpos.x, mpos.y);
     }
 }
 

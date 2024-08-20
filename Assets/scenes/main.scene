@@ -99,9 +99,8 @@
       "__guid": "e34281be-0129-4bc9-8b2b-4c2027c0d32d",
       "Flags": 0,
       "Name": "Cube",
-      "Position": "3.981439,4.247438,17.24936",
+      "Position": "0,0,5.05912",
       "Scale": "0.2,0.2,0.2",
-      "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
@@ -130,6 +129,29 @@
         {
           "__type": "CursorPassthrough",
           "__guid": "a801311c-2df8-4bdf-a51e-c801cb41ad17"
+        }
+      ]
+    },
+    {
+      "__guid": "965030e7-5457-4a4a-aea2-a01a9b4b2d18",
+      "Flags": 0,
+      "Name": "World",
+      "Position": "0,0,12.8",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.WorldPanel",
+          "__guid": "2327ca7a-087f-4f7c-89b7-6208e4d2a0a2",
+          "HorizontalAlign": "Center",
+          "InteractionRange": 1000,
+          "LookAtCamera": true,
+          "PanelSize": "512,512",
+          "RenderScale": 1,
+          "VerticalAlign": "Center"
+        },
+        {
+          "__type": "DevWorldPopup",
+          "__guid": "9ad255d7-7972-4781-8d1a-fb4b1237044b"
         }
       ]
     }

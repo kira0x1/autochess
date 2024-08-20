@@ -1,0 +1,18 @@
+DevWorldPopup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 15px;
+
+  .text {
+    font-size: 32px;
+    font-weight: 650;
+    font-family: poppins;
+    color: #fff;
+  }
+}
