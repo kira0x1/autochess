@@ -34,17 +34,26 @@
       "Flags": 0,
       "Name": "Plane",
       "Position": "32,0,0",
-      "Scale": "2,2,1",
+      "Scale": "15,15,1",
+      "Tags": "floor",
       "Enabled": true,
       "Components": [
         {
           "__type": "Sandbox.ModelRenderer",
           "__guid": "f9d49d15-c3ac-435d-8549-dad897408400",
           "BodyGroups": 18446744073709551615,
-          "MaterialOverride": "materials/dev/simple/simple_tile.vmat",
+          "MaterialOverride": "materials/checker.vmat",
           "Model": "models/dev/plane.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.PlaneCollider",
+          "__guid": "91f88d40-14e9-4824-b1e7-053a25a4daf4",
+          "Center": "0,0,0",
+          "IsTrigger": false,
+          "Scale": "100,100",
+          "Static": true
         }
       ]
     },
@@ -83,6 +92,44 @@
           "CellOffset": 2,
           "CellSize": 22,
           "LineThickness": 2
+        }
+      ]
+    },
+    {
+      "__guid": "e34281be-0129-4bc9-8b2b-4c2027c0d32d",
+      "Flags": 0,
+      "Name": "Cube",
+      "Position": "3.981439,4.247438,17.24936",
+      "Scale": "0.2,0.2,0.2",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "089109e6-8087-4db5-9c57-27522db6893a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ab3fd928-4086-47c8-8bd5-5ab5add1a5dd",
+      "Flags": 0,
+      "Name": "Screen",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "326709e3-b0ea-446c-9c4d-e2a98689dfce",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "CursorPassthrough",
+          "__guid": "a801311c-2df8-4bdf-a51e-c801cb41ad17"
         }
       ]
     }

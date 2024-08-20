@@ -12,6 +12,7 @@ public sealed class GridManager : Component
 
     private List<CellSlot> cells = new List<CellSlot>();
     private bool updateCells = false;
+    private Vector2 MousePos { get; set; }
 
     protected override void OnValidate()
     {
@@ -30,13 +31,15 @@ public sealed class GridManager : Component
             UpdateCells();
         }
 
+        HandleCamera();
         DrawCells();
     }
 
     private void DrawCells()
     {
-        foreach (CellSlot c in cells)
+        for (var i = 0; i < cells.Count; i++)
         {
+            CellSlot c = cells[i];
             Gizmo.Draw.Color = c.Occupied ? Color.Red : Color.White;
             Gizmo.Draw.LineThickness = LineThickness;
 
@@ -44,6 +47,14 @@ public sealed class GridManager : Component
             var max = p + CellSize;
             max.z = p.z + CellHeight;
             BBox b = new BBox(p, max);
+
+            var isX = MousePos.x < max.x && MousePos.x > p.x;
+            var isY = MousePos.y < max.y && MousePos.y > p.y;
+
+            if (isX && isY)
+            {
+                Gizmo.Draw.Color = Color.Magenta;
+            }
 
             Gizmo.Draw.LineBBox(b);
         }
@@ -62,13 +73,11 @@ public sealed class GridManager : Component
 
         for (int i = 1; i < CellCount; i++)
         {
-            bool isocc = Random.Shared.Float(0f, 1f) > 0.6f;
             py += CellOffset + CellSize;
             pos.y = py;
 
             CellSlot slot = new CellSlot(i);
             slot.Position = pos;
-            slot.Occupied = isocc;
             cells.Add(slot);
         }
 
@@ -91,6 +100,27 @@ public sealed class GridManager : Component
         }
 
         updateCells = false;
+    }
+
+    private void HandleCamera()
+    {
+        CameraComponent cam = Scene.Components.GetAll<CameraComponent>().FirstOrDefault();
+
+        if (!cam.IsValid())
+        {
+            Log.Info("cam not found");
+            return;
+        }
+
+        // Ray ray = cam.ScreenPixelToRay(Mouse.Position);
+        // var mpos = ray.Project(300);
+
+        var ray = cam.ScreenPixelToRay(Mouse.Position).Project(400f);
+        var tr = Scene.Trace.Ray(cam.Transform.Position, ray).WithTag("floor").Run();
+
+        var mpos = new Vector2(ray.x, ray.y);
+        Log.Info($"{mpos.x:F0}, {mpos.y:F0}");
+        MousePos = mpos;
     }
 }
 
