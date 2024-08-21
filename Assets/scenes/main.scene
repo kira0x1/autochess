@@ -5,7 +5,7 @@
       "__guid": "381aab25-9b7e-4704-bb94-36c90407d11c",
       "Flags": 0,
       "Name": "Camera",
-      "Position": "-290.3067,0,308.2508",
+      "Position": "-632.5225,0,808.9681",
       "Rotation": "0,0.3826835,0,0.9238796",
       "Tags": "maincamera",
       "Enabled": true,
@@ -15,7 +15,7 @@
           "__guid": "f8646362-3105-4536-85c1-db6a104141cd",
           "BackgroundColor": "0.33333,0.46275,0.52157,1",
           "ClearFlags": "All",
-          "FieldOfView": 45.21,
+          "FieldOfView": 43,
           "IsMainCamera": true,
           "Orthographic": false,
           "OrthographicHeight": 301,
@@ -58,40 +58,22 @@
       ]
     },
     {
-      "__guid": "3585c35c-9af3-4249-9e80-3f8143ebc41d",
-      "Flags": 0,
-      "Name": "Sun",
-      "Position": "0,0,64",
-      "Rotation": "0,0.3826834,0,0.9238796",
-      "Tags": "light_directional,light",
-      "Enabled": true,
-      "Components": [
-        {
-          "__type": "Sandbox.DirectionalLight",
-          "__guid": "fd7660ea-e1ce-4928-8e21-3163a879fe2d",
-          "FogMode": "Enabled",
-          "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
-          "Shadows": true,
-          "SkyColor": "0,0,0,0"
-        }
-      ]
-    },
-    {
       "__guid": "d6efbd06-c640-4f3c-9fe4-43428ae14d84",
       "Flags": 0,
       "Name": "Grid",
-      "Position": "-64,0.5890198,11.50001",
+      "Position": "-64,0.5890198,0.25",
       "Enabled": true,
       "Components": [
         {
           "__type": "Kira.GridManager",
           "__guid": "03383934-ffd5-4189-a84b-eabc3df9e09e",
           "CellCount": 8,
-          "CellHeight": 0,
-          "CellOffset": 2,
-          "CellSize": 22,
-          "LineThickness": 2
+          "CellHeight": 0.01,
+          "CellOffset": 8,
+          "CellSize": 48,
+          "LineThickness": 2,
+          "ShowText": false,
+          "TextSize": 42
         }
       ]
     },
@@ -133,25 +115,132 @@
       ]
     },
     {
-      "__guid": "965030e7-5457-4a4a-aea2-a01a9b4b2d18",
+      "__guid": "55263b12-ad3d-4851-8662-b2795b5f1923",
       "Flags": 0,
-      "Name": "World",
-      "Position": "0,0,12.8",
+      "Name": "Cube",
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "54029019-740c-498a-9f8c-17d8ae6c3e3a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/dev/box.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "489f2e36-81f0-4bfe-b4bf-0bc1cca46096",
+      "Flags": 0,
+      "Name": "npc",
+      "Position": "-46.6,0,0",
+      "Tags": "selectable",
       "Enabled": true,
       "Components": [
         {
-          "__type": "Sandbox.WorldPanel",
-          "__guid": "2327ca7a-087f-4f7c-89b7-6208e4d2a0a2",
-          "HorizontalAlign": "Center",
-          "InteractionRange": 1000,
-          "LookAtCamera": true,
-          "PanelSize": "512,512",
-          "RenderScale": 1,
-          "VerticalAlign": "Center"
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "0d4101c5-9829-44ea-bc38-e3d7d08f3e3b",
+          "Center": "0,0,37.5",
+          "IsTrigger": false,
+          "Scale": "27.30005,50,75",
+          "Static": false
         },
         {
-          "__type": "DevWorldPopup",
-          "__guid": "9ad255d7-7972-4781-8d1a-fb4b1237044b"
+          "__type": "Kira.Pawn",
+          "__guid": "5849de7a-abd8-4bf3-93a9-92e1355f8bca",
+          "Renderer": {
+            "_type": "component",
+            "component_id": "8d25176c-41bd-4e94-8f2c-cd047afea6da",
+            "go": "757a4317-b387-4d53-afec-9ac49571e118",
+            "component_type": "SkinnedModelRenderer"
+          }
+        }
+      ],
+      "Children": [
+        {
+          "__guid": "757a4317-b387-4d53-afec-9ac49571e118",
+          "Flags": 0,
+          "Name": "model",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "8d25176c-41bd-4e94-8f2c-cd047afea6da",
+              "BodyGroups": 341,
+              "CreateBoneObjects": false,
+              "Model": "models/citizen/citizen.vmdl",
+              "RenderType": "On",
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "1434d2f4-ee0f-4e5e-9532-f66bff046d0f",
+      "Flags": 0,
+      "Name": "Sun",
+      "Position": "0,0,194.1656",
+      "Rotation": "-0.1303804,0.444427,0.2494899,0.8504354",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "88dc6ac1-9a2c-4e17-8eaa-a3f4dd6ac59e",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.95767,0.93488,1",
+          "Shadows": true,
+          "SkyColor": "0.46512,0.46512,0.46512,1"
+        }
+      ]
+    },
+    {
+      "__guid": "5b7ebd54-e7ba-484b-a763-2198d837a26e",
+      "Flags": 0,
+      "Name": "2D Skybox",
+      "Tags": "skybox",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkyBox2D",
+          "__guid": "5a589169-78ac-4690-98c7-13bebd90ae2e",
+          "SkyMaterial": "materials/skybox/skybox_day_01.vmat",
+          "Tint": "1,1,1,1"
+        },
+        {
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "a333a14a-f2ad-4139-9eec-54c1e2be92f9",
+          "Texture": "textures/cubemaps/default2.vtex",
+          "Bounds": {
+            "Mins": "-512,-512,-512",
+            "Maxs": "512,512,512"
+          },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 512,
+          "Projection": "Sphere",
+          "RenderDynamically": false,
+          "TintColor": "1,1,1,1",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
+        }
+      ]
+    },
+    {
+      "__guid": "964ee47a-3e99-440a-af5a-18c3e8f14ab6",
+      "Flags": 0,
+      "Name": "Player",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Kira.Player",
+          "__guid": "a06e570d-478a-449b-a776-579266caed22"
         }
       ]
     }

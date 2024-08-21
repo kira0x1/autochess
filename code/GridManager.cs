@@ -1,14 +1,15 @@
 namespace Kira;
 
-using System;
-
 public sealed class GridManager : Component
 {
     [Property, Range(1, 12)] public int CellCount { get; set; } = 9;
-    [Property, Range(0, 25)] public float CellSize { get; set; } = 14f;
+    [Property, Range(0, 225)] public float CellSize { get; set; } = 14f;
     [Property, Range(0, 15)] public float CellOffset { get; set; } = 7.7f;
     [Property, Range(0, 50f)] public float CellHeight { get; set; } = 16f;
     [Property, Range(0.1f, 4f)] public float LineThickness { get; set; } = 1f;
+
+    [Property, Category("Text"), Range(0, 100)] private float TextSize { get; set; } = 50;
+    [Property, Category("Text")] private bool ShowText { get; set; }
 
     private List<CellSlot> cells = new List<CellSlot>();
     private bool updateCells = false;
@@ -28,6 +29,7 @@ public sealed class GridManager : Component
     {
         if (updateCells)
         {
+            CreateCells();
             UpdateCells();
         }
 
@@ -58,11 +60,13 @@ public sealed class GridManager : Component
 
             Gizmo.Draw.LineBBox(b);
 
+            if (ShowText)
+            {
+                float cx = b.Center.x;
+                float cy = b.Center.y;
 
-            float cx = b.Center.x;
-            float cy = b.Center.y;
-
-            Gizmo.Draw.WorldText($"{cy:F0}, {cx:F0}", new Transform(b.Center, Rotation.From(0, -90, 0), 0.2f), "Roboto", 22f, TextFlag.Center);
+                Gizmo.Draw.WorldText($"{cy:F0}, {cx:F0}", new Transform(b.Center, Rotation.From(0, -90, 0), 0.2f), "Roboto", TextSize, TextFlag.Center);
+            }
         }
     }
 
@@ -120,7 +124,6 @@ public sealed class GridManager : Component
 
         var ray = cam.ScreenPixelToRay(Mouse.Position).Project(400f);
         var mpos = Scene.Trace.Ray(cam.Transform.Position, ray).Run().EndPosition;
-
         MousePos = new Vector2(mpos.x, mpos.y);
     }
 }
