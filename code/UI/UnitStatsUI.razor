@@ -1,0 +1,28 @@
+@using System
+@using Kira
+@inherits PanelComponent
+
+<root>
+
+    @if (IsHovering)
+    {
+        <div class="text">Hovering</div>
+        <div class="text">@selectable.SelectableType</div>
+    }
+</root>
+
+@code
+{
+    private bool IsHovering => player.IsHovering;
+    private ISelectable selectable => player.hovering;
+
+    private IUnit UnitSelected { get; set; }
+    private Player player { get; set; }
+
+    protected override void OnAwake()
+    {
+        player = Scene.Components.GetAll<Player>().FirstOrDefault();
+    }
+
+    protected override int BuildHash() => HashCode.Combine(player.IsHovering, selectable);
+}

@@ -2,9 +2,11 @@
 
 using System;
 
-public class Pawn : Component, ISelectable
+public class Pawn : Component, ISelectable, IUnit
 {
     public Guid id { get; set; }
+    public string Name { get; set; }
+    public int Level { get; set; }
 
     public bool IsSelected { get; set; }
     public bool IsHovering { get; set; }
@@ -12,6 +14,7 @@ public class Pawn : Component, ISelectable
     [Property]
     private SkinnedModelRenderer Renderer { get; set; }
 
+    public SelectableTypes SelectableType { get; set; } = SelectableTypes.Unit;
     private Color Tint { get; set; }
     private Color HoveringTint { get; set; } = Color.Magenta;
 

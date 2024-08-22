@@ -5,7 +5,7 @@
       "__guid": "381aab25-9b7e-4704-bb94-36c90407d11c",
       "Flags": 0,
       "Name": "Camera",
-      "Position": "-632.5225,0,808.9681",
+      "Position": "-672,0,808.9681",
       "Rotation": "0,0.3826835,0,0.9238796",
       "Tags": "maincamera",
       "Enabled": true,
@@ -78,23 +78,6 @@
       ]
     },
     {
-      "__guid": "e34281be-0129-4bc9-8b2b-4c2027c0d32d",
-      "Flags": 0,
-      "Name": "Cube",
-      "Position": "0,0,5.05912",
-      "Scale": "0.2,0.2,0.2",
-      "Components": [
-        {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "089109e6-8087-4db5-9c57-27522db6893a",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/dev/box.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
-        }
-      ]
-    },
-    {
       "__guid": "ab3fd928-4086-47c8-8bd5-5ab5add1a5dd",
       "Flags": 0,
       "Name": "Screen",
@@ -111,21 +94,11 @@
         {
           "__type": "CursorPassthrough",
           "__guid": "a801311c-2df8-4bdf-a51e-c801cb41ad17"
-        }
-      ]
-    },
-    {
-      "__guid": "55263b12-ad3d-4851-8662-b2795b5f1923",
-      "Flags": 0,
-      "Name": "Cube",
-      "Components": [
+        },
         {
-          "__type": "Sandbox.ModelRenderer",
-          "__guid": "54029019-740c-498a-9f8c-17d8ae6c3e3a",
-          "BodyGroups": 18446744073709551615,
-          "Model": "models/dev/box.vmdl",
-          "RenderType": "On",
-          "Tint": "1,1,1,1"
+          "__type": "UnitStatsUI",
+          "__guid": "88da3210-2af0-4a24-baec-e6848feca43c",
+          "MyStringValue": "Hello World!"
         }
       ]
     },

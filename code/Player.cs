@@ -3,8 +3,8 @@
 public class Player : Component
 {
     private CameraComponent cam;
-    private bool IsHovering { get; set; }
-    private ISelectable hovering;
+    public bool IsHovering { get; set; }
+    public ISelectable hovering;
 
     protected override void OnAwake()
     {
@@ -35,8 +35,6 @@ public class Player : Component
                 hovering = sl;
                 IsHovering = true;
             }
-
-            Log.Info(trace.GameObject.Name);
         }
         else if (IsHovering)
         {
