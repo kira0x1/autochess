@@ -15,9 +15,8 @@ public interface ISelectable
     public void Deselect();
 }
 
-public interface IUnit
+public interface IUnit : ISelectable
 {
-    public Guid id { get; set; }
     public string Name { get; set; }
     public int Level { get; set; }
 }

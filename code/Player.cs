@@ -3,8 +3,12 @@
 public class Player : Component
 {
     private CameraComponent cam;
+
     public bool IsHovering { get; set; }
+    public bool HasSelection { get; set; }
+
     public ISelectable hovering;
+    public IUnit SelectedUnit { get; set; }
 
     protected override void OnAwake()
     {
@@ -17,29 +21,68 @@ public class Player : Component
         var ray = cam.ScreenPixelToRay(Mouse.Position).Project(1400f);
         var trace = Scene.Trace.Ray(cam.Transform.Position, ray).WithTag("selectable").Run();
 
-
-        if (trace.Hit)
+        if (!trace.Hit)
         {
-            var sl = trace.GameObject.Components.Get<ISelectable>();
-
-            if (!IsHovering)
-            {
-                sl.OnHover();
-                hovering = sl;
-                IsHovering = true;
-            }
-            else if (sl.id != hovering.id)
+            if (IsHovering)
             {
                 hovering.OnLeaveHover();
-                sl.OnHover();
-                hovering = sl;
-                IsHovering = true;
+                IsHovering = false;
             }
+
+            if (HasSelection && Input.Pressed("attack1"))
+            {
+                SelectedUnit.Deselect();
+                HasSelection = false;
+            }
+
+            return;
         }
-        else if (IsHovering)
+
+        var sl = trace.GameObject.Components.Get<ISelectable>();
+        if (sl != null)
+        {
+            if (Input.Pressed("attack1"))
+            {
+                if (sl.SelectableType != SelectableTypes.Unit)
+                {
+                    return;
+                }
+
+                var unit = trace.GameObject.Components.Get<IUnit>();
+                if (unit == null) return;
+
+                SelectUnit(unit);
+                return;
+            }
+
+            HandleHovering(sl);
+        }
+    }
+
+    private void SelectUnit(IUnit unit)
+    {
+        if (HasSelection)
+        {
+            SelectedUnit.Deselect();
+        }
+
+        unit.Select();
+        SelectedUnit = unit;
+        HasSelection = true;
+    }
+
+    private void HandleHovering(ISelectable selectable)
+    {
+        if (IsHovering && selectable.id != hovering.id)
         {
             hovering.OnLeaveHover();
-            IsHovering = false;
+        }
+
+        if (!IsHovering)
+        {
+            selectable.OnHover();
+            hovering = selectable;
+            IsHovering = true;
         }
     }
 }

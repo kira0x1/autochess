@@ -4,19 +4,22 @@
 
 <root>
 
-    @if (IsHovering)
+    @if (HasSelection)
     {
-        <div class="text">Hovering</div>
-        <div class="text">@selectable.SelectableType</div>
+        <div class="text">Selected</div>
+        <div class="text">@Selectable.SelectableType</div>
+        <div class="text">@UnitSelected.Level</div>
     }
 </root>
 
 @code
 {
     private bool IsHovering => player.IsHovering;
-    private ISelectable selectable => player.hovering;
+    private bool HasSelection => player.HasSelection;
 
-    private IUnit UnitSelected { get; set; }
+    private ISelectable Selectable => player.hovering;
+    private IUnit UnitSelected => player.SelectedUnit;
+
     private Player player { get; set; }
 
     protected override void OnAwake()
@@ -24,5 +27,5 @@
         player = Scene.Components.GetAll<Player>().FirstOrDefault();
     }
 
-    protected override int BuildHash() => HashCode.Combine(player.IsHovering, selectable);
+    protected override int BuildHash() => HashCode.Combine(IsHovering, HasSelection);
 }

@@ -97,8 +97,7 @@
         },
         {
           "__type": "UnitStatsUI",
-          "__guid": "88da3210-2af0-4a24-baec-e6848feca43c",
-          "MyStringValue": "Hello World!"
+          "__guid": "88da3210-2af0-4a24-baec-e6848feca43c"
         }
       ]
     },
@@ -121,12 +120,16 @@
         {
           "__type": "Kira.Pawn",
           "__guid": "5849de7a-abd8-4bf3-93a9-92e1355f8bca",
+          "HoveringTint": "0.82326,0.82326,0.82326,1",
+          "Level": 25,
+          "Name": "pawny",
           "Renderer": {
             "_type": "component",
             "component_id": "8d25176c-41bd-4e94-8f2c-cd047afea6da",
             "go": "757a4317-b387-4d53-afec-9ac49571e118",
             "component_type": "SkinnedModelRenderer"
-          }
+          },
+          "SelectedTint": "0.48837,0.48837,0.48837,1"
         }
       ],
       "Children": [
