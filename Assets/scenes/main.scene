@@ -145,6 +145,7 @@
               "__guid": "8d25176c-41bd-4e94-8f2c-cd047afea6da",
               "BodyGroups": 341,
               "CreateBoneObjects": false,
+              "MaterialOverride": "materials/unitmat.vmat",
               "Model": "models/citizen/citizen.vmdl",
               "RenderType": "On",
               "Tint": "1,1,1,1",
