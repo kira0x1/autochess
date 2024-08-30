@@ -121,19 +121,50 @@
         {
           "__type": "Kira.Pawn",
           "__guid": "5849de7a-abd8-4bf3-93a9-92e1355f8bca",
-          "HoveringTint": "0.82326,0.82326,0.82326,1",
+          "HoveringTint": "0.34419,0.34419,0.34419,1",
           "Level": 25,
           "Name": "pawny",
+          "OutlineObject": {
+            "_type": "gameobject",
+            "go": "a2a322db-423e-42ff-a233-ee88fc0d8485"
+          },
           "Renderer": {
             "_type": "component",
             "component_id": "8d25176c-41bd-4e94-8f2c-cd047afea6da",
             "go": "757a4317-b387-4d53-afec-9ac49571e118",
             "component_type": "SkinnedModelRenderer"
           },
-          "SelectedTint": "0.48837,0.48837,0.48837,1"
+          "SelectedTint": "1,1,1,1"
         }
       ],
       "Children": [
+        {
+          "__guid": "a2a322db-423e-42ff-a233-ee88fc0d8485",
+          "Flags": 0,
+          "Name": "outline",
+          "Position": "0,0,0",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "Sandbox.SkinnedModelRenderer",
+              "__guid": "5fd8063e-dc21-45c4-9949-15945c2dcdfb",
+              "BodyGroups": 341,
+              "BoneMergeTarget": {
+                "_type": "component",
+                "component_id": "8d25176c-41bd-4e94-8f2c-cd047afea6da",
+                "go": "757a4317-b387-4d53-afec-9ac49571e118",
+                "component_type": "SkinnedModelRenderer"
+              },
+              "CreateBoneObjects": false,
+              "MaterialGroup": "default",
+              "MaterialOverride": "materials/unitmat.vmat",
+              "Model": "models/citizen/citizen.vmdl",
+              "RenderType": "Off",
+              "Tint": "1,1,1,1",
+              "UseAnimGraph": true
+            }
+          ]
+        },
         {
           "__guid": "757a4317-b387-4d53-afec-9ac49571e118",
           "Flags": 0,

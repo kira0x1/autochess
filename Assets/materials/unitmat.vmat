@@ -6,4 +6,7 @@ Layer0
 
 	//---- Fog ----
 	g_bFogEnabled "1"
+
+	//---- Translucent ----
+	g_flOpacityScale "1.000"
 }

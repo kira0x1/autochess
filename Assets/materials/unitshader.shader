@@ -24,7 +24,7 @@ COMMON
 	#define S_ALPHA_TEST 0
 	#endif
 	#ifndef S_TRANSLUCENT
-	#define S_TRANSLUCENT 0
+	#define S_TRANSLUCENT 1
 	#endif
 	
 	#include "common/shared.hlsl"
@@ -64,7 +64,10 @@ VS
 		i.vTintColor = extraShaderData.vTint;
 
 		VS_DecodeObjectSpaceNormalAndTangent( v, i.vNormalOs, i.vTangentUOs_flTangentVSign );
-
+		
+		i.vPositionWs.xyz += float3( 0.1, 0.1, 0.1 );
+		i.vPositionPs.xyzw = Position3WsToPs( i.vPositionWs.xyz );
+		
 		return FinalizeVertex( i );
 	}
 }
@@ -74,8 +77,7 @@ PS
 	#include "common/pixel.hlsl"
 	
 	float4 g_vOutlineColor < Attribute( "OutlineColor" ); Default4( 0.00, 0.00, 0.00, 1.00 ); >;
-	float4 g_vColor < Attribute( "Color" ); Default4( 1.00, 1.00, 1.00, 1.00 ); >;
-	bool g_bShowOutline < Attribute( "ShowOutline" ); Default( 0 ); >;
+	bool g_bShowOutline < Attribute( "ShowOutline" ); Default( 1 ); >;
 	
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
@@ -92,17 +94,14 @@ PS
 		
 		float4 l_0 = g_vOutlineColor;
 		float3 l_1 = pow( 1.0 - dot( normalize( i.vNormalWs ), normalize( CalculatePositionToCameraDirWs( i.vPositionWithOffsetWs.xyz + g_vHighPrecisionLightingOffsetWs.xyz ) ) ), 5 );
-		float3 l_2 = step( 0.09, l_1 );
-		float4 l_3 = float4( 0, 0, 0, 1 );
-		float4 l_4 = float4( l_2, 0 ) + l_3;
-		float4 l_5 = saturate( ( l_4 - float4( 0.7381756, 0.7381756, 0.7381756, 0.7381756 ) ) / ( float4( 0.16259348, 0.16259348, 0.16259348, 0.16259348 ) - float4( 0.7381756, 0.7381756, 0.7381756, 0.7381756 ) ) ) * ( float4( 1, 1, 1, 1 ) - float4( 0, 0, 0, 0 ) ) + float4( 0, 0, 0, 0 );
-		float4 l_6 = l_0 + l_5;
-		float4 l_7 = g_vColor;
-		float4 l_8 = l_6 * l_7;
-		float4 l_9 = g_bShowOutline ? l_8 : l_7;
+		float3 l_2 = step( 0.14, l_1 );
+		float3 l_3 = saturate( ( l_2 - float3( 0.33711043, 0.33711043, 0.33711043 ) ) / ( float3( 0, 0, 0 ) - float3( 0.33711043, 0.33711043, 0.33711043 ) ) ) * ( float3( 0.5099171, 0.5099171, 0.5099171 ) - float3( 0, 0, 0 ) ) + float3( 0, 0, 0 );
+		float4 l_4 = l_0 + float4( l_3, 0 );
+		float4 l_5 = g_bShowOutline ? l_4 : float4( 0, 0, 0, 0 );
+		float3 l_6 = step( 0.5, l_2 );
 		
-		m.Albedo = l_9.xyz;
-		m.Opacity = 1;
+		m.Albedo = l_5.xyz;
+		m.Opacity = l_6.x;
 		m.Roughness = 1;
 		m.Metalness = 0;
 		m.AmbientOcclusion = 1;

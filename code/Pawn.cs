@@ -10,6 +10,8 @@ public class Pawn : Component, ISelectable, IUnit
     [Property] public int Level { get; set; }
 
     [Property] private SkinnedModelRenderer Renderer { get; set; }
+    [Property] private GameObject OutlineObject { get; set; }
+
     [Property] private Color HoveringTint { get; set; } = Color.Cyan.WithRed(220);
     [Property] private Color SelectedTint { get; set; } = Color.Cyan;
 
@@ -33,6 +35,7 @@ public class Pawn : Component, ISelectable, IUnit
 
         if (!IsSelected)
         {
+            OutlineObject.Enabled = true;
             Renderer.Tint = HoveringTint;
         }
     }
@@ -40,18 +43,21 @@ public class Pawn : Component, ISelectable, IUnit
     public void OnLeaveHover()
     {
         IsHovering = false;
+        OutlineObject.Enabled = IsSelected;
         Renderer.Tint = !IsSelected ? Tint : SelectedTint;
     }
 
     public void Select()
     {
         IsSelected = true;
+        OutlineObject.Enabled = true;
         Renderer.Tint = SelectedTint;
     }
 
     public void Deselect()
     {
         IsSelected = false;
+        OutlineObject.Enabled = false;
         Renderer.Tint = Tint;
     }
 }
