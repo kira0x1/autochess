@@ -7,7 +7,7 @@ public class Player : Component
     public bool IsHovering { get; set; }
     public bool HasSelection { get; set; }
 
-    public ISelectable hovering;
+    public IUnit hovering;
     public IUnit SelectedUnit { get; set; }
 
     protected override void OnAwake()
@@ -41,21 +41,21 @@ public class Player : Component
         var sl = trace.GameObject.Components.Get<ISelectable>();
         if (sl != null)
         {
+            if (sl.SelectableType != SelectableTypes.Unit)
+            {
+                return;
+            }
+
+            var unit = trace.GameObject.Components.Get<IUnit>();
+            if (unit == null) return;
+
             if (Input.Pressed("attack1"))
             {
-                if (sl.SelectableType != SelectableTypes.Unit)
-                {
-                    return;
-                }
-
-                var unit = trace.GameObject.Components.Get<IUnit>();
-                if (unit == null) return;
-
                 SelectUnit(unit);
                 return;
             }
 
-            HandleHovering(sl);
+            HandleHovering(unit);
         }
     }
 
@@ -71,7 +71,7 @@ public class Player : Component
         HasSelection = true;
     }
 
-    private void HandleHovering(ISelectable selectable)
+    private void HandleHovering(IUnit selectable)
     {
         if (IsHovering && selectable.id != hovering.id)
         {

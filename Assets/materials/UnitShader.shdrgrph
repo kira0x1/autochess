@@ -92,10 +92,13 @@
         "Type": "Color",
         "PrimaryGroup": {
           "Name": "Outline"
+        },
+        "SecondaryGroup": {
+          "Name": ""
         }
       },
       "Identifier": "7",
-      "Position": "-272,-512"
+      "Position": "-256,-640"
     },
     {
       "_class": "Float4",
@@ -132,10 +135,13 @@
       "UI": {
         "PrimaryGroup": {
           "Name": "Outline"
+        },
+        "SecondaryGroup": {
+          "Name": "OutlineVar"
         }
       },
       "Identifier": "10",
-      "Position": "192,-608",
+      "Position": "128,-624",
       "True": {
         "Identifier": "11",
         "Output": "Result"

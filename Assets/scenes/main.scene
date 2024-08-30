@@ -1,5 +1,5 @@
 {
-  "__guid": "4ac40663-c539-43bb-9618-c39a3294f619",
+  "__guid": "5b29a9f5-ef1e-4666-a367-ba8e027cf387",
   "GameObjects": [
     {
       "__guid": "381aab25-9b7e-4704-bb94-36c90407d11c",
@@ -89,6 +89,7 @@
           "AutoScreenScale": true,
           "Opacity": 1,
           "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
           "ZIndex": 100
         },
         {
@@ -145,7 +146,6 @@
               "__guid": "8d25176c-41bd-4e94-8f2c-cd047afea6da",
               "BodyGroups": 341,
               "CreateBoneObjects": false,
-              "MaterialOverride": "materials/unitmat.vmat",
               "Model": "models/citizen/citizen.vmdl",
               "RenderType": "On",
               "Tint": "1,1,1,1",

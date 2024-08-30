@@ -19,6 +19,7 @@ public class Pawn : Component, ISelectable, IUnit
     public SelectableTypes SelectableType { get; set; } = SelectableTypes.Unit;
     private Color Tint { get; set; }
 
+    public Stats Stats { get; set; } = new Stats();
 
     protected override void OnAwake()
     {

@@ -4,11 +4,24 @@
 
 <root>
 
-    @if (HasSelection)
+    @if (IsHovering || HasSelection)
     {
-        <div class="text">Selected</div>
-        <div class="text">@Selectable.SelectableType</div>
-        <div class="text">@UnitSelected.Level</div>
+        IUnit unit = IsHovering ? HoveringUnit : UnitSelected;
+
+        <div class="details-row">
+            <i>person</i>
+            <div class="text">
+                @unit.Name
+            </div>
+        </div>
+        <div class="details-row">
+            <div class="field-label">LVL</div>
+            <div class="text">@unit.Level</div>
+        </div>
+        <div class="stats">
+            <div class="stat-li">
+            </div>
+        </div>
     }
 </root>
 
@@ -17,7 +30,7 @@
     private bool IsHovering => player.IsHovering;
     private bool HasSelection => player.HasSelection;
 
-    private ISelectable Selectable => player.hovering;
+    private IUnit HoveringUnit => player.hovering;
     private IUnit UnitSelected => player.SelectedUnit;
 
     private Player player { get; set; }
