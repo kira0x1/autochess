@@ -1,0 +1,20 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "materials/selectionglow.shader"
+
+	//---- Rendering ----
+	F_DO_NOT_CAST_SHADOWS 1
+
+	Texture_ps_0 "materials/tools/terrain/brushes/2_circle.png"
+
+	//---- Fog ----
+	g_bFogEnabled "0"
+
+	//---- Main ----
+	g_vColor "[1.000000 0.803922 0.168627 1.000000]"
+
+	//---- Translucent ----
+	g_flOpacityScale "0.438"
+}

@@ -134,7 +134,12 @@
             "go": "757a4317-b387-4d53-afec-9ac49571e118",
             "component_type": "SkinnedModelRenderer"
           },
-          "SelectedTint": "1,1,1,1"
+          "SelectedTint": "1,1,1,1",
+          "SelectionGlow": {
+            "_type": "gameobject",
+            "go": "d451f2c8-f7cd-4e72-9f80-4db3e73b6a7e"
+          },
+          "UseOutlineModel": false
         }
       ],
       "Children": [
@@ -143,7 +148,6 @@
           "Flags": 0,
           "Name": "outline",
           "Position": "0,0,0",
-          "Enabled": true,
           "Components": [
             {
               "__type": "Sandbox.SkinnedModelRenderer",
@@ -181,6 +185,24 @@
               "RenderType": "On",
               "Tint": "1,1,1,1",
               "UseAnimGraph": true
+            }
+          ]
+        },
+        {
+          "__guid": "d451f2c8-f7cd-4e72-9f80-4db3e73b6a7e",
+          "Flags": 0,
+          "Name": "SelectedEffect",
+          "Position": "0.6975784,0,0.5",
+          "Tags": "particles",
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "58d25af2-15e2-44c0-8696-35368f737a48",
+              "BodyGroups": 18446744073709551615,
+              "MaterialOverride": "materials/selectionglow.vmat",
+              "Model": "models/dev/plane.vmdl",
+              "RenderType": "Off",
+              "Tint": "1,1,1,1"
             }
           ]
         }
