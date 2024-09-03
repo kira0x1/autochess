@@ -1,37 +1,30 @@
 ﻿DetailsRow {
-  gap: 20px;
+  gap: 1px;
   align-items: center;
-  line-height: 16px;
-
 
   i {
     color: #afafaf;
-    align-items: flex-end;
-    justify-content: flex-end;
-    align-content: flex-end;
     height: 100%;
-    font-size: 22px;
+    align-items: center;
+    font-size: 18px;
     width: 30px;
-
   }
-
 
   .field-value {
     color: #efefef;
     text-transform: capitalize;
     //font-weight: 700;
     font-size: 16px;
-    //align-items: flex-end;
     font-family: Poppins;
-    font-weight: 650;
+    font-weight: 400;
     //height: 100%;
   }
 
   .field-label {
     color: #afafaf;
     font-family: Poppins;
-    font-weight: 900;
-    font-size: 15px;
+    font-weight: 360;
+    font-size: 14px;
     width: 30px;
   }
 }

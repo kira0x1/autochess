@@ -3,6 +3,7 @@
 public class Stats
 {
     public Stat Stamina { get; set; } = new Stat("Stamina");
+    public Stat Evasion { get; set; } = new Stat("Evasion");
 }
 
 public class Stat

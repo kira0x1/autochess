@@ -10,12 +10,16 @@
 
         <div class="details">
             <DetailsRow Icon="person" ValueText=@unit.Name/>
-            <DetailsRow LabelText="LVL" ValueText=@unit.Level.ToString()/>
+            <DetailsRow LabelText="lvl" ValueText=@unit.Level.ToString()/>
         </div>
 
+        <div class="stats-title">Stats</div>
         <div class="stats">
-            <div class="stat-li">
-            </div>
+
+            <detailsrow LabelText="agility" ValueText="12"></detailsrow>
+            <detailsrow LabelText="strength" ValueText="12"></detailsrow>
+            <detailsrow LabelText="evasion" ValueText="12"></detailsrow>
+
         </div>
     }
 </root>

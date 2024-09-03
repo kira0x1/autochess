@@ -2,12 +2,34 @@
 
 using System;
 
+public class PawnVitals
+{
+    public float Health { get; set; } = 100f;
+    public float MaxHealth { get; set; } = 10f;
+    public float BaseMaxHealth { get; set; } = 10f;
+    public float StaminaMod { get; set; } = 10f;
+
+    public void UpdateVitals(Stats stats)
+    {
+        UpdateMaxHealth(stats.Stamina);
+    }
+
+    public void UpdateMaxHealth(Stat stamina)
+    {
+        float max = BaseMaxHealth;
+        max += stamina.Value * StaminaMod;
+        MaxHealth = max;
+    }
+}
+
 public class Pawn : Component, ISelectable, IUnit
 {
     public Guid id { get; set; }
 
     [Property] public string Name { get; set; }
     [Property] public int Level { get; set; }
+    public Stats Stats { get; set; } = new Stats();
+    public PawnVitals Vitals { get; set; } = new PawnVitals();
 
     [Property, Category("Outline")] private SkinnedModelRenderer Renderer { get; set; }
     [Property, Category("Outline")] private GameObject OutlineObject { get; set; }
@@ -19,7 +41,6 @@ public class Pawn : Component, ISelectable, IUnit
     private Color Tint { get; set; }
 
     public SelectableTypes SelectableType { get; set; } = SelectableTypes.Unit;
-    public Stats Stats { get; set; } = new Stats();
     public bool IsSelected { get; set; }
     public bool IsHovering { get; set; }
 
@@ -27,6 +48,7 @@ public class Pawn : Component, ISelectable, IUnit
     {
         id = GameObject.Id;
         Tint = Renderer.Tint;
+        Vitals.UpdateVitals(Stats);
     }
 
     public void OnHover()

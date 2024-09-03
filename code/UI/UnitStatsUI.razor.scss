@@ -2,7 +2,7 @@ UnitStatsUI {
   background-color: #444;
   flex-direction: column;
 
-  padding: 20px;
+  padding: 10px 8px;
   border-radius: 5px;
   width: 380px;
   height: 200px;
@@ -13,7 +13,48 @@ UnitStatsUI {
   left: 10px;
 
   .details {
+    padding: 0 8px;
     flex-direction: column;
     gap: 2px;
+  }
+
+  .stats-title {
+    color: #fff;
+    font-size: 12px;
+    font-family: Poppins;
+    font-weight: 800;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 3px;
+
+
+    DetailsRow {
+      gap: 10px;
+    }
+
+
+    .field-label {
+      width: 70px;
+      background-color: #666;
+      color: #dadada;
+      font-size: 13px;
+      font-family: "Roboto Condensed";
+      font-weight: 400;
+      padding: 2px;
+      border-radius: 2px;
+    }
+
+    .field-value {
+      justify-content: flex-end;
+    }
+
+    padding: 8px;
+    background-color: #222;
+    flex-grow: 1;
+    border-radius: 2px;
   }
 }
