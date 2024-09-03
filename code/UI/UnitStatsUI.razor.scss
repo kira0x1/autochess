@@ -2,55 +2,18 @@ UnitStatsUI {
   background-color: #444;
   flex-direction: column;
 
-  margin: 8px 0 0 8px;
   padding: 20px;
   border-radius: 5px;
-  width: 15%;
-  height: 40%;
+  width: 380px;
+  height: 200px;
   gap: 6px;
 
-  .text {
-    font-weight: bold;
-    font-size: 18px;
-    font-family: Poppins;
-    color: #fff;
-  }
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 
-  .details-row {
-    border-radius: 2px;
-    align-items: center;
-    align-content: center;
-    height: 35px;
-    gap: 20px;
-
-    .text {
-      font-weight: 600;
-      text-transform: capitalize;
-      font-size: 24px;
-      align-content: center;
-      justify-content: center;
-      align-items: center;
-    }
-
-    i {
-      color: white;
-      align-content: center;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 32px;
-    }
-
-
-    .field-label {
-      color: #fff;
-      font-family: "Segoe UI";
-      font-weight: 700;
-      //letter-spacing: 3px;
-      font-size: 20px;
-      align-content: center;
-      justify-content: center;
-    }
-
+  .details {
+    flex-direction: column;
+    gap: 2px;
   }
 }

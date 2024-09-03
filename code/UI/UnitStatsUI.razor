@@ -8,16 +8,11 @@
     {
         IUnit unit = IsHovering ? HoveringUnit : UnitSelected;
 
-        <div class="details-row">
-            <i>person</i>
-            <div class="text">
-                @unit.Name
-            </div>
+        <div class="details">
+            <DetailsRow Icon="person" ValueText=@unit.Name/>
+            <DetailsRow LabelText="LVL" ValueText=@unit.Level.ToString()/>
         </div>
-        <div class="details-row">
-            <div class="field-label">LVL</div>
-            <div class="text">@unit.Level</div>
-        </div>
+
         <div class="stats">
             <div class="stat-li">
             </div>

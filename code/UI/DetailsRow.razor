@@ -1,0 +1,26 @@
+﻿@using System
+@using Sandbox.UI;
+@inherits Panel
+
+
+<root>
+    @if (Icon != null)
+    {
+        <i>@Icon</i>
+    }
+
+    @if (LabelText != null)
+    {
+        <div class="field-label">@LabelText</div>
+    }
+
+    <div class="field-value">@ValueText</div>
+</root>
+
+@code{
+    public string LabelText { get; set; }
+    public string ValueText { get; set; }
+    public string Icon { get; set; }
+
+    protected override int BuildHash() => HashCode.Combine(LabelText, ValueText, Icon);
+}

@@ -18,6 +18,11 @@ public class Player : Component
 
     protected override void OnUpdate()
     {
+        UpdateRay();
+    }
+
+    private void UpdateRay()
+    {
         var ray = cam.ScreenPixelToRay(Mouse.Position).Project(1400f);
         var trace = Scene.Trace.Ray(cam.Transform.Position, ray).WithTag("selectable").Run();
 

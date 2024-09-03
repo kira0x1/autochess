@@ -121,7 +121,7 @@
         {
           "__type": "Kira.Pawn",
           "__guid": "5849de7a-abd8-4bf3-93a9-92e1355f8bca",
-          "HoveringTint": "0.34419,0.34419,0.34419,1",
+          "HoveringTint": "0.7907,0.7907,0.7907,1",
           "Level": 25,
           "Name": "pawny",
           "OutlineObject": {
@@ -193,6 +193,7 @@
           "Flags": 0,
           "Name": "SelectedEffect",
           "Position": "0.6975784,0,0.5",
+          "Scale": "0.7,0.7,0.7",
           "Tags": "particles",
           "Components": [
             {
