@@ -23,22 +23,28 @@ UnitStatsUI {
     font-size: 12px;
     font-family: Poppins;
     font-weight: 800;
-    justify-content: center;
+    margin-left: 100px;
     width: 100%;
   }
 
+  .info-panel {
+    padding: 5px;
+    border-radius: 4px;
+    gap: 8px;
+  }
+
   .stats {
+    background-color: #323232;
     flex-direction: column;
     flex-wrap: wrap;
-    border-radius: 5px;
-    gap: 7px;
-    padding-top: 8.5px;
-    padding-left: 8px;
-    background-color: #2d2d2d;
+    gap: 6px;
+    width: 70%;
+    padding: 8px;
+    border-radius: 3px;
 
     DetailsRow {
       background-color: #678a83;
-      gap: 10px;
+      gap: 7px;
       //border-radius: 2px 6px 2px 2px;
       border-radius: 4px;
     }
@@ -61,6 +67,23 @@ UnitStatsUI {
       flex-shrink: 0;
       width: auto;
       margin-right: 8px;
+    }
+  }
+
+
+  .items {
+    border-radius: 5px;
+    justify-content: center;
+    align-content: center;
+    gap: 4px;
+    width: 40%;
+    flex-wrap: wrap;
+
+    .item-slot {
+      border-radius: 2px;
+      background-color: #333;
+      width: 60px;
+      height: 50px;
     }
   }
 }
