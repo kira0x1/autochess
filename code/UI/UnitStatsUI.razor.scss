@@ -15,7 +15,7 @@ UnitStatsUI {
   .details {
     padding: 0 8px;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
   }
 
   .stats-title {
@@ -29,32 +29,38 @@ UnitStatsUI {
 
   .stats {
     flex-direction: column;
-    gap: 3px;
-
+    flex-wrap: wrap;
+    border-radius: 1px;
+    gap: 5px;
+    padding: 6px;
+    background-color: #2d2d2d;
 
     DetailsRow {
+      background-color: #678a83;
       gap: 10px;
+      //border-radius: 2px 6px 2px 2px;
+      border-radius: 2px;
     }
 
 
     .field-label {
       width: 70px;
-      background-color: #666;
+      background-color: #425253;
       color: #dadada;
-      font-size: 13px;
+      font-size: 14px;
       font-family: "Roboto Condensed";
       font-weight: 400;
-      padding: 2px;
-      border-radius: 2px;
+      border-radius: 0 0 10px 0;
+
+      padding: 4px;
     }
 
     .field-value {
-      justify-content: flex-end;
+      //background-color: #ccc;
+      flex-grow: 1;
+      flex-shrink: 0;
+      width: auto;
+      margin-right: 8px;
     }
-
-    padding: 8px;
-    background-color: #222;
-    flex-grow: 1;
-    border-radius: 2px;
   }
 }
