@@ -2,7 +2,7 @@ UnitStatsUI {
   background-color: #444;
   flex-direction: column;
 
-  padding: 10px 8px;
+  padding: 10px 6px 8px 6px;
   border-radius: 5px;
   width: 380px;
   height: 200px;
@@ -13,7 +13,7 @@ UnitStatsUI {
   left: 10px;
 
   .details {
-    padding: 0 8px;
+    padding: 0 5px;
     flex-direction: column;
     gap: 4px;
   }
@@ -30,16 +30,17 @@ UnitStatsUI {
   .stats {
     flex-direction: column;
     flex-wrap: wrap;
-    border-radius: 1px;
-    gap: 5px;
-    padding: 6px;
+    border-radius: 5px;
+    gap: 7px;
+    padding-top: 8.5px;
+    padding-left: 8px;
     background-color: #2d2d2d;
 
     DetailsRow {
       background-color: #678a83;
       gap: 10px;
       //border-radius: 2px 6px 2px 2px;
-      border-radius: 2px;
+      border-radius: 4px;
     }
 
 
@@ -50,9 +51,8 @@ UnitStatsUI {
       font-size: 14px;
       font-family: "Roboto Condensed";
       font-weight: 400;
-      border-radius: 0 0 10px 0;
-
-      padding: 4px;
+      border-radius: 2px 0 8px 2px;
+      padding: 3px;
     }
 
     .field-value {
