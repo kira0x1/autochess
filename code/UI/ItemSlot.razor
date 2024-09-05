@@ -1,0 +1,19 @@
+﻿@using System
+@using Kira
+@using Sandbox.UI;
+@inherits Panel
+
+<root>
+    @if (!Slot.HasItem) return;
+    <i>@Slot.Item.Icon</i>
+    <div class="item-icon">
+    </div>
+
+    @* <div class="field-label">@Item.Name</div> *@
+    @* <div class="field-value">@ValueText</div> *@
+</root>
+
+@code {
+    public InventorySlot Slot { get; set; }
+    protected override int BuildHash() => HashCode.Combine(Slot.HasItem, Slot.Item);
+}

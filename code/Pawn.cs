@@ -22,12 +22,14 @@ public class PawnVitals
     }
 }
 
-public class Pawn : Component, ISelectable, IUnit
+public class Pawn : Component, IUnit
 {
     public Guid id { get; set; }
 
     [Property] public string Name { get; set; }
     [Property] public int Level { get; set; }
+
+    public PawnInventory Inventory { get; set; } = new PawnInventory();
     public Stats Stats { get; set; } = new Stats();
     public PawnVitals Vitals { get; set; } = new PawnVitals();
 
@@ -66,8 +68,6 @@ public class Pawn : Component, ISelectable, IUnit
     {
         IsHovering = false;
         Renderer.Tint = !IsSelected ? Tint : SelectedTint;
-        // SelectionGlow.Enabled = IsSelected;
-        // if (UseOutlineModel) OutlineObject.Enabled = IsSelected;
     }
 
     public void Select()
@@ -75,7 +75,6 @@ public class Pawn : Component, ISelectable, IUnit
         IsSelected = true;
         if (UseOutlineModel) OutlineObject.Enabled = true;
         SelectionGlow.Enabled = true;
-        // Renderer.Tint = SelectedTint;
     }
 
     public void Deselect()

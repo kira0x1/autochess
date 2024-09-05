@@ -3,7 +3,6 @@
 @inherits PanelComponent
 
 <root>
-
     @if (IsHovering || HasSelection)
     {
         IUnit unit = IsHovering ? HoveringUnit : UnitSelected;
@@ -16,21 +15,20 @@
         <div class="stats-title">Stats</div>
 
         <div class="info-panel">
-            
+
             <div class="stats">
                 <detailsrow LabelText="agility" ValueText="12"></detailsrow>
                 <detailsrow LabelText="strength" ValueText="12"></detailsrow>
                 <detailsrow LabelText="evasion" ValueText="12"></detailsrow>
                 <detailsrow LabelText="evasion" ValueText="12"></detailsrow>
             </div>
-            
+
             <div class="items">
-                <div class="item-slot"></div>
-                <div class="item-slot"></div>
-                <div class="item-slot"></div>
-                <div class="item-slot"></div>
+                <ItemSlot Slot=@unit.Inventory.Items[0]></ItemSlot>
+                <ItemSlot Slot=@unit.Inventory.Items[1]></ItemSlot>
+                <ItemSlot Slot=@unit.Inventory.Items[2]></ItemSlot>
+                <ItemSlot Slot=@unit.Inventory.Items[3]></ItemSlot>
             </div>
-            
         </div>
     }
 </root>
@@ -42,7 +40,6 @@
 
     private IUnit HoveringUnit => player.hovering;
     private IUnit UnitSelected => player.SelectedUnit;
-
     private Player player { get; set; }
 
     protected override void OnAwake()

@@ -19,6 +19,7 @@ public interface IUnit : ISelectable
 {
     public string Name { get; set; }
     public int Level { get; set; }
+    public PawnInventory Inventory { get; set; }
 }
 
 public enum SelectableTypes
