@@ -2,7 +2,7 @@
 
 Layer0
 {
-	shader "materials/unitshader.shader"
+	shader "shaders/unitshader.shader"
 
 	//---- Fog ----
 	g_bFogEnabled "1"

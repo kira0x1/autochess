@@ -45,6 +45,7 @@
           "Feathering": 0.02,
           "FrameInterval": 5,
           "MaxDistance": 512,
+          "MultiBounce": false,
           "Projection": "Sphere",
           "RenderDynamically": false,
           "TintColor": "1,1,1,1",

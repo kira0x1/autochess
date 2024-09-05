@@ -48,6 +48,7 @@
         "Name": "",
         "Default": "1,1,1,1",
         "CustomExtension": "",
+        "ShowExtension": true,
         "Processor": "ScaleToPowerOfTwo",
         "SrgbRead": true,
         "PrimaryGroup": {

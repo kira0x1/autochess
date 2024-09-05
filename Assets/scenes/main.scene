@@ -161,7 +161,7 @@
               },
               "CreateBoneObjects": false,
               "MaterialGroup": "default",
-              "MaterialOverride": "materials/unitmat.vmat",
+              "MaterialOverride": "materials/error.vmat",
               "Model": "models/citizen/citizen.vmdl",
               "RenderType": "Off",
               "Tint": "1,1,1,1",
@@ -202,7 +202,7 @@
               "BodyGroups": 18446744073709551615,
               "MaterialOverride": "materials/selectionglow.vmat",
               "Model": "models/dev/plane.vmdl",
-              "RenderType": "Off",
+              "RenderType": "On",
               "Tint": "1,1,1,1"
             }
           ]

@@ -2,19 +2,16 @@
 
 Layer0
 {
-	shader "materials/selectionglow.shader"
+	shader "shaders/selectionglow.shader"
 
-	//---- Rendering ----
-	F_DO_NOT_CAST_SHADOWS 1
-
-	Texture_ps_0 "materials/tools/terrain/brushes/2_circle.png"
+	Texture_ps_0 "materials/tools/terrain/brushes/1_circle.png"
 
 	//---- Fog ----
-	g_bFogEnabled "0"
+	g_bFogEnabled "1"
 
 	//---- Main ----
-	g_vColor "[1.000000 0.803922 0.168627 1.000000]"
+	g_vColor "[1.000000 0.745098 0.152941 1.000000]"
 
 	//---- Translucent ----
-	g_flOpacityScale "0.438"
+	g_flOpacityScale "1.000"
 }
