@@ -4,7 +4,7 @@ Layer0
 {
 	shader "shaders/selectionglow.shader"
 
-	Texture_ps_0 "materials/tools/terrain/brushes/1_circle.png"
+	Texture_ps_0 "materials/tools/terrain/brushes/3_circle.png"
 
 	//---- Fog ----
 	g_bFogEnabled "1"
