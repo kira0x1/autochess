@@ -2,39 +2,42 @@
 @using Kira
 @inherits PanelComponent
 
-<root>
-    @if (IsHovering || HasSelection)
-    {
-        IUnit unit = IsHovering ? HoveringUnit : UnitSelected;
 
-        <div class="details">
-            <DetailsRow Icon="person" ValueText=@unit.Name/>
-            <DetailsRow LabelText="lvl" ValueText=@unit.Level.ToString()/>
+@{
+    string cname = (!IsHovering && !HasSelection) ? "hidden" : "visible";
+}
+
+<root class=@cname>
+    @if (!IsHovering && !HasSelection) return;
+
+    <div class="details">
+        <DetailsRow Icon="person" ValueText=@unit.Name/>
+        <DetailsRow LabelText="lvl" ValueText=@unit.Level.ToString()/>
+    </div>
+
+    <div class="stats-title">Stats</div>
+
+    <div class="info-panel">
+
+        <div class="stats">
+            <detailsrow LabelText="agility" ValueText="12"></detailsrow>
+            <detailsrow LabelText="strength" ValueText="12"></detailsrow>
+            <detailsrow LabelText="evasion" ValueText="12"></detailsrow>
+            <detailsrow LabelText="evasion" ValueText="12"></detailsrow>
         </div>
 
-        <div class="stats-title">Stats</div>
-
-        <div class="info-panel">
-
-            <div class="stats">
-                <detailsrow LabelText="agility" ValueText="12"></detailsrow>
-                <detailsrow LabelText="strength" ValueText="12"></detailsrow>
-                <detailsrow LabelText="evasion" ValueText="12"></detailsrow>
-                <detailsrow LabelText="evasion" ValueText="12"></detailsrow>
-            </div>
-
-            <div class="items">
-                <ItemSlot Slot=@unit.Inventory.Items[0]></ItemSlot>
-                <ItemSlot Slot=@unit.Inventory.Items[1]></ItemSlot>
-                <ItemSlot Slot=@unit.Inventory.Items[2]></ItemSlot>
-                <ItemSlot Slot=@unit.Inventory.Items[3]></ItemSlot>
-            </div>
+        <div class="items">
+            <ItemSlot Slot=@unit.Inventory.Items[0]></ItemSlot>
+            <ItemSlot Slot=@unit.Inventory.Items[1]></ItemSlot>
+            <ItemSlot Slot=@unit.Inventory.Items[2]></ItemSlot>
+            <ItemSlot Slot=@unit.Inventory.Items[3]></ItemSlot>
         </div>
-    }
+    </div>
 </root>
 
 @code
 {
+    private IUnit unit => IsHovering ? HoveringUnit : UnitSelected;
     private bool IsHovering => player.IsHovering;
     private bool HasSelection => player.HasSelection;
 
