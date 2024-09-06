@@ -10,22 +10,24 @@
     width: 30px;
   }
 
-  .field-value {
-    color: #efefef;
-    text-transform: capitalize;
-    //font-weight: 700;
-    font-size: 16px;
-    font-family: Poppins;
+  .field-label {
+    width: 70px;
+    background-color: #425253;
+    color: #dadada;
+    font-size: 14px;
+    font-family: "Roboto Condensed";
     font-weight: 400;
-    //height: 100%;
+    border-radius: 2px 0 8px 2px;
+    padding: 3px;
   }
 
-  .field-label {
-    color: #afafaf;
-    font-family: Poppins;
-    font-weight: 360;
-    font-size: 14px;
-    width: 30px;
+  .field-value {
+    //background-color: #ccc;
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: auto;
+    margin-right: 8px;
   }
+
 }
 

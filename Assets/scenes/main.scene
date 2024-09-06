@@ -99,6 +99,10 @@
         {
           "__type": "UnitStatsUI",
           "__guid": "88da3210-2af0-4a24-baec-e6848feca43c"
+        },
+        {
+          "__type": "DevUI",
+          "__guid": "b78cbaf8-d7b6-4f55-ba26-ab23c3ad7e0a"
         }
       ]
     },

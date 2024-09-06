@@ -1,0 +1,25 @@
+@using Kira
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+    <div class="info-panel">
+        <detailsrow LabelText="IsDragging" ValueText=@player.IsDragging/>
+    </div>
+</root>
+
+@code
+{
+    private Player player { get; set; }
+
+    protected override void OnAwake()
+    {
+        player = Scene.Components.GetAll<Player>().FirstOrDefault();
+    }
+
+    /// <summary>
+    /// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+    /// </summary>
+    protected override int BuildHash() => System.HashCode.Combine(player.IsDragging);
+}

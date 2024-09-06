@@ -1,0 +1,30 @@
+DevUI {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 280px;
+  height: 160px;
+  gap: 6px;
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 20px 20px;
+  background-color: #444;
+  font-weight: bold;
+
+  DetailsRow {
+    gap: 10px;
+
+    .field-label {
+      flex-grow: 1;
+      width: auto;
+      padding: 10px;
+      color: #333;
+      font-weight: 500;
+      background-color: #aaa;
+    }
+
+    .field-value {
+      color: white;
+    }
+  }
+}

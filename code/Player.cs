@@ -5,10 +5,13 @@ public class Player : Component
     private CameraComponent cam;
 
     public bool IsHovering { get; set; }
+    public bool IsDragging { get; set; }
     public bool HasSelection { get; set; }
 
     public IUnit hovering;
+    public IUnit unitDragging;
     public IUnit SelectedUnit { get; set; }
+
 
     protected override void OnAwake()
     {
@@ -19,6 +22,20 @@ public class Player : Component
     protected override void OnUpdate()
     {
         UpdateRay();
+        HandleDragging();
+    }
+
+    private void HandleDragging()
+    {
+        if (IsHovering && !IsDragging && Input.Pressed("attack2"))
+        {
+            IsDragging = true;
+        }
+
+        if (IsDragging && Input.Released("attack2"))
+        {
+            IsDragging = false;
+        }
     }
 
     private void UpdateRay()
@@ -66,6 +83,9 @@ public class Player : Component
 
     private void SelectUnit(IUnit unit)
     {
+        if (IsDragging) return;
+
+
         if (HasSelection)
         {
             SelectedUnit.Deselect();
@@ -78,6 +98,8 @@ public class Player : Component
 
     private void HandleHovering(IUnit selectable)
     {
+        if (IsDragging) return;
+
         if (IsHovering && selectable.id != hovering.id)
         {
             hovering.OnLeaveHover();
